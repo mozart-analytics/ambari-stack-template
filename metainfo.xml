@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>DUMMY_APP</name>
+            <displayName>My Dummy APP</displayName>
+            <comment>This is a distributed app.</comment>
+            <version>0.1</version>
+            <components>
+                <component>
+                    <name>DUMMY_MASTER</name>
+                    <displayName>Dummy Master Component</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1</cardinality>
+                    <commandScript>
+                        <script>scripts/master.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+                <component>
+                    <name>DUMMY_SLAVE</name>
+                    <displayName>Dummy Slave Component</displayName>
+                    <category>SLAVE</category>
+                    <cardinality>1+</cardinality>
+                    <commandScript>
+                        <script>scripts/slave.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+            </components>
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>any</osFamily>
+                    <packages>
+                        <package>
+                            <name>ImageMagick</name>
+                        </package>
+                    </packages>
+                </osSpecific>
+            </osSpecifics>
+            <commandScript>
+                <script>scripts/service_check.py</script>
+                <scriptType>PYTHON</scriptType>
+                <timeout>300</timeout>
+            </commandScript>
+            <requiredServices>
+                <service>HDFS</service>
+                <service>YARN</service>
+            </requiredServices>
+            <configuration-dependencies>
+                <config-type>my-config-env</config-type>
+            </configuration-dependencies>
+        </service>
+    </services>
+</metainfo>

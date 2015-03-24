@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+ 
+<configuration>
+  <property>
+    <name>dummy_user</name>
+    <value>dummy</value>
+    <description>Dummy App User Name.</description>
+  </property>
+  <property>
+    <name>dummy_var</name>
+    <value>123</value>
+    <description>Dummy Variable.</description>
+  </property>
+</configuration>
